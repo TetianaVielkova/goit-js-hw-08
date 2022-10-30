@@ -11,8 +11,6 @@ const addGalleryItem = createGalleryItem(galleryItems);
 galleryRef.insertAdjacentHTML('beforeend', addGalleryItem);
 
 
-
-
 function createGalleryItem(galleryItems) {
     return galleryItems.map(({preview, original, description}) => 
 
