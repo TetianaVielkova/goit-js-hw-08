@@ -8,7 +8,7 @@ const formRef = document.querySelector('.feedback-form');
 const formData = {};
 
 formRef.addEventListener('input', throttle(onFormData, 500));
-formRef.addEventListener('submit', onSubmitForm);
+formRef.addEventListener('submit', onFormSubmit);
 
 
 function onFormData(e) {
@@ -17,17 +17,21 @@ function onFormData(e) {
 }
 
 
-function onFormSubmit(evt) {
-    evt.preventDefault();
+function onFormSubmit(e) {
+    e.preventDefault();
     
-    evt.currentTarget.reset();
+    e.currentTarget.reset();
 
     localStorage.removeItem(FEEDBACK_FORM);
 }
+
+getMessage();
 
 function getMessage() {
     const savedData = localStorage.getItem(FEEDBACK_FORM);
     if(savedData) {
         const feedback = JSON.parse(savedData);
+
     }
+    console.log(formData);
 }
